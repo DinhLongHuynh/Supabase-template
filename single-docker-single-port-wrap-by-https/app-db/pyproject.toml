@@ -1,0 +1,25 @@
+[project]
+name = "app-db"
+version = "1.0.0"
+description = "Your app's database as an HTTP API, at /app-db/ on the Supabase container's gateway."
+# The image runs it on Debian's Python (3.13), which supervisor brings along.
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi==0.141.1",       # the API (api.py)
+    "uvicorn==0.54.0",        # ASGI server
+    "sqlalchemy==2.1.1",      # the tables and queries (models.py, store.py)
+    "alembic==1.20.0",        # schema migrations, run at startup
+    "psycopg[binary]==3.3.6", # Postgres driver
+]
+
+[dependency-groups]
+dev = [
+    "pytest==9.1.1",
+    "httpx2==2.13.1",         # FastAPI's TestClient
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

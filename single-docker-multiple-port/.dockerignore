@@ -1,0 +1,6 @@
+# The image needs everything here except utils/ and the settings: .env holds
+# every secret, and is passed at run time (or baked with --secret, see the
+# Dockerfile), never copied into the build context.
+utils/
+.env
+.env.old

@@ -1,0 +1,11 @@
+# The image needs everything here except utils/, app-db's local venv and
+# tests, and the settings: .env holds every secret, and is passed at run time
+# (or baked with --secret, see the Dockerfile), never copied into the build
+# context.
+utils/
+.env
+.env.old
+app-db/.venv/
+app-db/tests/
+app-db/.pytest_cache/
+**/__pycache__/
